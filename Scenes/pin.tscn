@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://hp617mxhlugm"]
+
+[ext_resource type="Script" uid="uid://by84hdi6yslip" path="res://Scripts/Special blocks/pin.gd" id="1_052ig"]
+[ext_resource type="PhysicsMaterial" uid="uid://cy4f7b8oup0qg" path="res://Physics materials/Trampoline.tres" id="1_p4wps"]
+[ext_resource type="Texture2D" uid="uid://dymu858l4klm5" path="res://Assets/Items/discRed.png" id="2_p4wps"]
+[ext_resource type="AudioStream" uid="uid://dpahreccki87i" path="res://Assets/Sounds/Pop3.ogg" id="4_1nwex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2ygr"]
+radius = 19.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aewb5"]
+radius = 17.0
+
+[node name="Pin" type="StaticBody2D" unique_id=386054083]
+physics_material_override = ExtResource("1_p4wps")
+script = ExtResource("1_052ig")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=455350504]
+texture = ExtResource("2_p4wps")
+
+[node name="Bounce boundary" type="Area2D" parent="." unique_id=2022358336]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape2D" parent="Bounce boundary" unique_id=2092380139]
+shape = SubResource("CircleShape2D_q2ygr")
+debug_color = Color(0.82500786, 0.0016316324, 0.9572013, 0.41960785)
+
+[node name="World hitbox" type="CollisionShape2D" parent="." unique_id=1186360657]
+shape = SubResource("CircleShape2D_aewb5")
+debug_color = Color(0.23455107, 0.6376595, 3.85046e-07, 0.41960785)
+
+[node name="Pop" type="AudioStreamPlayer2D" parent="." unique_id=715546191]
+stream = ExtResource("4_1nwex")
+
+[connection signal="body_entered" from="Bounce boundary" to="." method="_on_player_bounce"]

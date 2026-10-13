@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://beemtewmxechq"]
+
+[ext_resource type="Script" uid="uid://cokp5t1cav6hg" path="res://Scripts/rockfall_spawner.gd" id="1_du0ie"]
+
+[node name="Rockfall spawner" type="Node2D" unique_id=1821605679]
+script = ExtResource("1_du0ie")
+
+[node name="Rock cooldown" type="Timer" parent="." unique_id=1723503410]
+wait_time = 0.06
+autostart = true
+
+[connection signal="timeout" from="Rock cooldown" to="." method="_on_rock_cooldown_timeout"]

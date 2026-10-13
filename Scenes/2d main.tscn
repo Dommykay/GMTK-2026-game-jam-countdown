@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dhgcxsbyf671d"]
+
+[ext_resource type="Script" uid="uid://cgn28n3sgky0f" path="res://Scripts/main.gd" id="1_why5o"]
+[ext_resource type="AudioStream" uid="uid://d36yk20mqs3es" path="res://Assets/Sounds/bong_001.ogg" id="2_ajr4e"]
+[ext_resource type="AudioStream" uid="uid://bwa6dhl1u2tro" path="res://Assets/Sounds/drop_002.ogg" id="3_l47yy"]
+[ext_resource type="AudioStream" uid="uid://bwqs7q1cedqyx" path="res://Assets/Sounds/tick_CW.ogg" id="4_gm8s2"]
+[ext_resource type="AudioStream" uid="uid://biqayeiudnim1" path="res://Assets/Sounds/tick_CCW.ogg" id="5_ily7o"]
+
+[node name="2D Main" type="Node2D" unique_id=1392457682]
+script = ExtResource("1_why5o")
+
+[node name="Scroll block" type="AudioStreamPlayer" parent="." unique_id=517482767]
+stream = ExtResource("2_ajr4e")
+volume_db = -4.0
+
+[node name="Place block" type="AudioStreamPlayer" parent="." unique_id=1891653254]
+stream = ExtResource("3_l47yy")
+volume_db = -7.0
+
+[node name="Rotate CW" type="AudioStreamPlayer" parent="." unique_id=2059667334]
+stream = ExtResource("4_gm8s2")
+volume_db = -8.0
+
+[node name="Rotate CCW" type="AudioStreamPlayer" parent="." unique_id=1899920769]
+stream = ExtResource("5_ily7o")
+volume_db = -8.0

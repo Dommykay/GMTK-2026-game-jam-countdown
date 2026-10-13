@@ -1,0 +1,4 @@
+extends RigidBody2D
+
+func _on_despawn_timeout() -> void:
+	queue_free()

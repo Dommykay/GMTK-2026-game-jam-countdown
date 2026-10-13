@@ -1,0 +1,319 @@
+[gd_scene format=3 uid="uid://cdmj0qjprij1"]
+
+[ext_resource type="Texture2D" uid="uid://v4dxnr8hvccp" path="res://Assets/Backgrounds/set1_background.png" id="1_lw8vy"]
+[ext_resource type="Script" uid="uid://ct52bhcl5vdqh" path="res://Scripts/main_menu.gd" id="1_qqtdq"]
+[ext_resource type="Texture2D" uid="uid://c8g2mtcufiucx" path="res://Assets/Backgrounds/set1_tiles.png" id="2_lmgbh"]
+[ext_resource type="Texture2D" uid="uid://deceqs781af1o" path="res://Assets/Backgrounds/set1_hills.png" id="3_0rmhq"]
+[ext_resource type="Texture2D" uid="uid://c3owk3ybwdkdp" path="res://Assets/Title.png" id="3_cs3qd"]
+[ext_resource type="Texture2D" uid="uid://bwpcus4wkio7a" path="res://Assets/Menu floor.png" id="4_lmgbh"]
+[ext_resource type="Script" uid="uid://c1gh07ablfesg" path="res://Scripts/sin_wave_parent.gd" id="4_p4o84"]
+[ext_resource type="Texture2D" uid="uid://bbochn4ofvmj7" path="res://Assets/Players/Player Blue/playerBlue_roll.png" id="5_0rmhq"]
+[ext_resource type="Texture2D" uid="uid://62ujw26jjgya" path="res://Assets/Button.png" id="9_x8fcf"]
+[ext_resource type="Script" uid="uid://b36hb27nc1adt" path="res://Scripts/buttons.gd" id="10_bsa63"]
+[ext_resource type="LabelSettings" uid="uid://b5c43duki56sx" path="res://Label settings/label settings.tres" id="11_djbbv"]
+[ext_resource type="AudioStream" uid="uid://ghg0833f06h5" path="res://Assets/Sounds/menu_tick.ogg" id="12_djbbv"]
+
+[node name="Menu" type="Control" unique_id=1192045897]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qqtdq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1691457518]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lw8vy")
+
+[node name="Clouds control" type="Control" parent="." unique_id=2000372112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clouds" type="Parallax2D" parent="Clouds control" unique_id=1180816525]
+repeat_size = Vector2(640, 480)
+autoscroll = Vector2(10.91, -7.24)
+repeat_times = 6
+
+[node name="Image" type="Sprite2D" parent="Clouds control/Clouds" unique_id=1449140590]
+position = Vector2(653.5, 411.5)
+texture = ExtResource("2_lmgbh")
+
+[node name="Hills and ground" type="VBoxContainer" parent="." unique_id=654312971]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Empty" type="Control" parent="Hills and ground" unique_id=1600506845]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Control" parent="Hills and ground" unique_id=1408834632]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Image" type="Sprite2D" parent="Hills and ground/Title" unique_id=2067817039]
+z_index = 1
+position = Vector2(0, -70)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_cs3qd")
+script = ExtResource("4_p4o84")
+
+[node name="Hills control" type="Control" parent="Hills and ground" unique_id=1349001382]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Stay at bottom" type="Control" parent="Hills and ground/Hills control" unique_id=1589588669]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hills" type="Parallax2D" parent="Hills and ground/Hills control/Stay at bottom" unique_id=1132878690]
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Image" type="Sprite2D" parent="Hills and ground/Hills control/Stay at bottom/Hills" unique_id=1527966402]
+position = Vector2(0, -100)
+texture = ExtResource("3_0rmhq")
+
+[node name="Player" type="Control" parent="Hills and ground" unique_id=990077302]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills and ground/Player" unique_id=1252611170]
+z_index = 1
+position = Vector2(0, -16)
+texture = ExtResource("5_0rmhq")
+
+[node name="Ground control" type="Control" parent="Hills and ground" unique_id=1705330716]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Hills and ground/Ground control" unique_id=583891748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+texture = ExtResource("4_lmgbh")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=423998040]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Empty" type="Control" parent="GridContainer" unique_id=198864580]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Play button container" type="VBoxContainer" parent="GridContainer" unique_id=1487597921]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty" type="Control" parent="GridContainer/Play button container" unique_id=347943185]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty2" type="Control" parent="GridContainer/Play button container" unique_id=503243210]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Play" type="TextureButton" parent="GridContainer/Play button container" unique_id=1474689170]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_x8fcf")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_bsa63")
+
+[node name="Label" type="Label" parent="GridContainer/Play button container/Play" unique_id=705873844]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+label_settings = ExtResource("11_djbbv")
+
+[node name="Tick" type="AudioStreamPlayer" parent="GridContainer/Play button container/Play" unique_id=896963223]
+stream = ExtResource("12_djbbv")
+volume_db = -8.0
+
+[node name="Empty3" type="Control" parent="GridContainer/Play button container" unique_id=937135860]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty4" type="Control" parent="GridContainer/Play button container" unique_id=1326850074]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tutorial button container" type="VBoxContainer" parent="GridContainer" unique_id=23504101]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty" type="Control" parent="GridContainer/Tutorial button container" unique_id=1280369782]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty2" type="Control" parent="GridContainer/Tutorial button container" unique_id=1269340652]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tutorial" type="TextureButton" parent="GridContainer/Tutorial button container" unique_id=1548522072]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_x8fcf")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_bsa63")
+
+[node name="Label" type="Label" parent="GridContainer/Tutorial button container/Tutorial" unique_id=1527128997]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tutorial"
+label_settings = ExtResource("11_djbbv")
+
+[node name="Tick" type="AudioStreamPlayer" parent="GridContainer/Tutorial button container/Tutorial" unique_id=1435453019]
+stream = ExtResource("12_djbbv")
+volume_db = -8.0
+
+[node name="Empty3" type="Control" parent="GridContainer/Tutorial button container" unique_id=537907027]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty4" type="Control" parent="GridContainer/Tutorial button container" unique_id=1431092362]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Mute music button container" type="VBoxContainer" parent="GridContainer" unique_id=1727310262]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty" type="Control" parent="GridContainer/Mute music button container" unique_id=964785115]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty2" type="Control" parent="GridContainer/Mute music button container" unique_id=1541278922]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Mute music button" type="TextureButton" parent="GridContainer/Mute music button container" unique_id=32923842]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_x8fcf")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_bsa63")
+
+[node name="Label" type="Label" parent="GridContainer/Mute music button container/Mute music button" unique_id=369595728]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mute
+BGM"
+label_settings = ExtResource("11_djbbv")
+horizontal_alignment = 1
+
+[node name="Tick" type="AudioStreamPlayer" parent="GridContainer/Mute music button container/Mute music button" unique_id=301377844]
+stream = ExtResource("12_djbbv")
+volume_db = -8.0
+
+[node name="Empty3" type="Control" parent="GridContainer/Mute music button container" unique_id=103407131]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty4" type="Control" parent="GridContainer/Mute music button container" unique_id=1882012257]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty3" type="Control" parent="GridContainer" unique_id=960700614]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="button_up" from="GridContainer/Play button container/Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="GridContainer/Tutorial button container/Tutorial" to="." method="_on_tutorial_button_up"]
+[connection signal="button_up" from="GridContainer/Mute music button container/Mute music button" to="." method="_on_mute_music_button_up"]

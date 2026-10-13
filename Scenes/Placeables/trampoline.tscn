@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://v2rslql6fq8b"]
+
+[ext_resource type="Script" uid="uid://7mp5kr50brp6" path="res://Scripts/Special blocks/trampoline.gd" id="1_lwmvy"]
+[ext_resource type="Texture2D" uid="uid://bo2an1eyy1hfp" path="res://Assets/trampoline.png" id="2_3tkr2"]
+[ext_resource type="PhysicsMaterial" uid="uid://cy4f7b8oup0qg" path="res://Physics materials/Trampoline.tres" id="2_e11ah"]
+[ext_resource type="AudioStream" uid="uid://b5v2ukwjhbhop" path="res://Assets/Sounds/Boing.ogg" id="4_y6xal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2ygr"]
+size = Vector2(500, 115.00003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aewb5"]
+size = Vector2(104, 25)
+
+[node name="Block" type="Node2D" unique_id=1354024229]
+script = ExtResource("1_lwmvy")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=693126595]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_3tkr2")
+
+[node name="Hitbox" type="StaticBody2D" parent="Texture" unique_id=37674459]
+collision_layer = 0
+collision_mask = 0
+physics_material_override = ExtResource("2_e11ah")
+
+[node name="Hitbox shape" type="CollisionShape2D" parent="Texture/Hitbox" unique_id=402100567]
+position = Vector2(0, 7.499999)
+scale = Vector2(0.99999994, 0.9999997)
+shape = SubResource("RectangleShape2D_q2ygr")
+
+[node name="Sound hitbox" type="Area2D" parent="." unique_id=481676361]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="Sound hitbox" unique_id=1827931790]
+position = Vector2(0, 1.4999998)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_aewb5")
+debug_color = Color(0.6137373, 0.35974836, 1, 0.41960785)
+
+[node name="Boing" type="AudioStreamPlayer2D" parent="." unique_id=1763669310]
+scale = Vector2(0.99999994, 0.99999994)
+stream = ExtResource("4_y6xal")
+
+[connection signal="body_entered" from="Sound hitbox" to="." method="_on_player_bounce"]

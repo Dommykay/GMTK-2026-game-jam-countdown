@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ncjdqnmowhdk"]
+
+[ext_resource type="Script" uid="uid://bd5elbdauwc7r" path="res://Scripts/key.gd" id="1_udxw8"]
+[ext_resource type="Texture2D" uid="uid://del1isbglt3mc" path="res://Assets/Items/keyRed.png" id="1_ut0wq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2ygr"]
+size = Vector2(30, 30)
+
+[node name="Key" type="Node2D" unique_id=2007408334]
+script = ExtResource("1_udxw8")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=1086070680]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ut0wq")
+
+[node name="Pickup box" type="Area2D" parent="." unique_id=357478990]
+collision_layer = 0
+collision_mask = 128
+
+[node name="Pickup box shape" type="CollisionShape2D" parent="Pickup box" unique_id=916880772]
+shape = SubResource("RectangleShape2D_q2ygr")
+
+[connection signal="body_entered" from="Pickup box" to="." method="_on_pickup_box_body_entered"]

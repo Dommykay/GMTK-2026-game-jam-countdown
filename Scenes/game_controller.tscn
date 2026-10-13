@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d0bwutg8oi8xk"]
+
+[ext_resource type="Script" uid="uid://b3ku7jse4p3jy" path="res://Scripts/game_controller.gd" id="1_goscw"]
+[ext_resource type="AudioStream" uid="uid://cofora7i6to35" path="res://Assets/Sounds/Mission Plausible.ogg" id="2_kx2cw"]
+
+[node name="Game Controller" type="Node" unique_id=61011351]
+script = ExtResource("1_goscw")
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=2104716460]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=24274098]
+stream = ExtResource("2_kx2cw")
+volume_db = -20.0
+autoplay = true
+playback_type = 1
+parameters/looping = true

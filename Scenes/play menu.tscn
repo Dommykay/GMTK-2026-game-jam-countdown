@@ -1,0 +1,320 @@
+[gd_scene format=3 uid="uid://cd8dnhcgytxyd"]
+
+[ext_resource type="Script" uid="uid://bu7sotohi05kn" path="res://Scripts/play_menu.gd" id="1_dxs45"]
+[ext_resource type="Texture2D" uid="uid://v4dxnr8hvccp" path="res://Assets/Backgrounds/set1_background.png" id="2_nmqry"]
+[ext_resource type="Texture2D" uid="uid://c8g2mtcufiucx" path="res://Assets/Backgrounds/set1_tiles.png" id="3_yfujf"]
+[ext_resource type="Texture2D" uid="uid://c3owk3ybwdkdp" path="res://Assets/Title.png" id="4_hbnvj"]
+[ext_resource type="Script" uid="uid://c1gh07ablfesg" path="res://Scripts/sin_wave_parent.gd" id="5_3pwqv"]
+[ext_resource type="Texture2D" uid="uid://deceqs781af1o" path="res://Assets/Backgrounds/set1_hills.png" id="6_tafgn"]
+[ext_resource type="Texture2D" uid="uid://bbochn4ofvmj7" path="res://Assets/Players/Player Blue/playerBlue_roll.png" id="7_0bilp"]
+[ext_resource type="Texture2D" uid="uid://bwpcus4wkio7a" path="res://Assets/Menu floor.png" id="8_xsglg"]
+[ext_resource type="Texture2D" uid="uid://62ujw26jjgya" path="res://Assets/Button.png" id="9_hbnvj"]
+[ext_resource type="Script" uid="uid://b36hb27nc1adt" path="res://Scripts/buttons.gd" id="10_3pwqv"]
+[ext_resource type="LabelSettings" uid="uid://b5c43duki56sx" path="res://Label settings/label settings.tres" id="11_tafgn"]
+[ext_resource type="AudioStream" uid="uid://ghg0833f06h5" path="res://Assets/Sounds/menu_tick.ogg" id="12_3pwqv"]
+
+[node name="Play menu" type="Control" unique_id=1192045897]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxs45")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1691457518]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nmqry")
+
+[node name="Clouds control" type="Control" parent="." unique_id=2000372112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clouds" type="Parallax2D" parent="Clouds control" unique_id=1180816525]
+repeat_size = Vector2(640, 480)
+autoscroll = Vector2(10.91, -7.24)
+repeat_times = 6
+
+[node name="Image" type="Sprite2D" parent="Clouds control/Clouds" unique_id=1449140590]
+position = Vector2(653.5, 411.5)
+texture = ExtResource("3_yfujf")
+
+[node name="Hills and ground" type="VBoxContainer" parent="." unique_id=654312971]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Empty" type="Control" parent="Hills and ground" unique_id=1600506845]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Control" parent="Hills and ground" unique_id=1408834632]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Image" type="Sprite2D" parent="Hills and ground/Title" unique_id=2067817039]
+z_index = 1
+position = Vector2(0, -100)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_hbnvj")
+script = ExtResource("5_3pwqv")
+
+[node name="Hills control" type="Control" parent="Hills and ground" unique_id=1349001382]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Stay at bottom" type="Control" parent="Hills and ground/Hills control" unique_id=1589588669]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hills" type="Parallax2D" parent="Hills and ground/Hills control/Stay at bottom" unique_id=1132878690]
+repeat_size = Vector2(640, 0)
+repeat_times = 4
+
+[node name="Image" type="Sprite2D" parent="Hills and ground/Hills control/Stay at bottom/Hills" unique_id=1527966402]
+position = Vector2(0, -100)
+texture = ExtResource("6_tafgn")
+
+[node name="Player" type="Control" parent="Hills and ground" unique_id=990077302]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills and ground/Player" unique_id=1252611170]
+z_index = 1
+position = Vector2(0, -16)
+texture = ExtResource("7_0bilp")
+
+[node name="Ground control" type="Control" parent="Hills and ground" unique_id=1705330716]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Hills and ground/Ground control" unique_id=583891748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+texture = ExtResource("8_xsglg")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=423998040]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Empty" type="Control" parent="GridContainer" unique_id=198864580]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer" unique_id=84893884]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty" type="Control" parent="GridContainer/VBoxContainer" unique_id=1461851340]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="GridContainer/VBoxContainer" unique_id=1646485780]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="1" type="TextureButton" parent="GridContainer/VBoxContainer/GridContainer" unique_id=1216699858]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_hbnvj")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_3pwqv")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer/GridContainer/1" unique_id=1177786826]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 1"
+label_settings = ExtResource("11_tafgn")
+
+[node name="Tick" type="AudioStreamPlayer" parent="GridContainer/VBoxContainer/GridContainer/1" unique_id=7539938]
+stream = ExtResource("12_3pwqv")
+volume_db = -8.0
+
+[node name="2" type="TextureButton" parent="GridContainer/VBoxContainer/GridContainer" unique_id=1393021493]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_hbnvj")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_3pwqv")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer/GridContainer/2" unique_id=957271331]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 2"
+label_settings = ExtResource("11_tafgn")
+
+[node name="Tick" type="AudioStreamPlayer" parent="GridContainer/VBoxContainer/GridContainer/2" unique_id=900375177]
+stream = ExtResource("12_3pwqv")
+volume_db = -8.0
+
+[node name="3" type="TextureButton" parent="GridContainer/VBoxContainer/GridContainer" unique_id=1587419516]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_hbnvj")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_3pwqv")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer/GridContainer/3" unique_id=914355018]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 3"
+label_settings = ExtResource("11_tafgn")
+
+[node name="Tick" type="AudioStreamPlayer" parent="GridContainer/VBoxContainer/GridContainer/3" unique_id=421525009]
+stream = ExtResource("12_3pwqv")
+volume_db = -8.0
+
+[node name="4" type="TextureButton" parent="GridContainer/VBoxContainer/GridContainer" unique_id=127467813]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_hbnvj")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_3pwqv")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer/GridContainer/4" unique_id=1992293920]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 4"
+label_settings = ExtResource("11_tafgn")
+
+[node name="Tick" type="AudioStreamPlayer" parent="GridContainer/VBoxContainer/GridContainer/4" unique_id=784331634]
+stream = ExtResource("12_3pwqv")
+volume_db = -8.0
+
+[node name="5" type="TextureButton" parent="GridContainer/VBoxContainer/GridContainer" unique_id=1002825043]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_hbnvj")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_3pwqv")
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer/GridContainer/5" unique_id=441109304]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 5"
+label_settings = ExtResource("11_tafgn")
+
+[node name="Tick" type="AudioStreamPlayer" parent="GridContainer/VBoxContainer/GridContainer/5" unique_id=1813857705]
+stream = ExtResource("12_3pwqv")
+volume_db = -8.0
+
+[node name="Empty4" type="Control" parent="GridContainer/VBoxContainer" unique_id=1248563806]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty2" type="Control" parent="GridContainer" unique_id=1396798285]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="button_up" from="GridContainer/VBoxContainer/GridContainer/1" to="." method="_on_button_up" binds= [1]]
+[connection signal="button_up" from="GridContainer/VBoxContainer/GridContainer/2" to="." method="_on_button_up" binds= [2]]
+[connection signal="button_up" from="GridContainer/VBoxContainer/GridContainer/3" to="." method="_on_button_up" binds= [3]]
+[connection signal="button_up" from="GridContainer/VBoxContainer/GridContainer/4" to="." method="_on_button_up" binds= [4]]
+[connection signal="button_up" from="GridContainer/VBoxContainer/GridContainer/5" to="." method="_on_button_up" binds= [5]]

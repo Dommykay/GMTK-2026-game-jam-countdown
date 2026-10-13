@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cbveorearh6jd"]
+
+[ext_resource type="TileSet" uid="uid://bwp1v8v8aiy27" path="res://Tilemaps/Main tilemap.tres" id="1_b54uo"]
+[ext_resource type="Script" uid="uid://b4m8satx3gace" path="res://Scripts/Special blocks/line_of_3.gd" id="1_pmmt4"]
+
+[node name="Block" type="Node2D" unique_id=1354024229]
+script = ExtResource("1_pmmt4")
+
+[node name="Texture" type="TileMapLayer" parent="." unique_id=341588766]
+position = Vector2(-16, 16)
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 2, 0, 14, 0, 6, 0, 0, 0, 1, 0, 255, 255, 2, 0, 12, 0, 6, 0, 0, 0, 0, 0, 255, 255, 2, 0, 16, 0, 6, 0, 0, 0)
+tile_set = ExtResource("1_b54uo")
+collision_enabled = false

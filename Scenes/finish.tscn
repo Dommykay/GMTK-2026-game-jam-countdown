@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://xt4xr6njngad"]
+
+[ext_resource type="Texture2D" uid="uid://c5rgvyey66kt2" path="res://Assets/finish.png" id="1_nv66a"]
+[ext_resource type="Script" uid="uid://dv4jigogc6pem" path="res://Scripts/finish.gd" id="1_o6pr6"]
+[ext_resource type="AudioStream" uid="uid://bar3fgy63hprv" path="res://Assets/Sounds/jingles-pizzicato_13.ogg" id="3_bgj60"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2ygr"]
+size = Vector2(100, 500)
+
+[node name="Finish" type="Node2D" unique_id=1517560383]
+script = ExtResource("1_o6pr6")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=273205707]
+texture = ExtResource("1_nv66a")
+
+[node name="Finish box" type="Area2D" parent="." unique_id=398701760]
+collision_layer = 0
+collision_mask = 128
+
+[node name="Finish box shape" type="CollisionShape2D" parent="Finish box" unique_id=615398788]
+shape = SubResource("RectangleShape2D_q2ygr")
+
+[node name="Win sound" type="AudioStreamPlayer" parent="." unique_id=2100833281]
+stream = ExtResource("3_bgj60")
+volume_db = -15.0
+
+[connection signal="body_entered" from="Finish box" to="." method="_on_finish"]

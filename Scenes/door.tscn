@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dhvsrfuerox53"]
+
+[ext_resource type="Script" uid="uid://bmfdppmyv1n4k" path="res://Scripts/door.gd" id="1_p0e35"]
+[ext_resource type="TileSet" uid="uid://bwp1v8v8aiy27" path="res://Tilemaps/Main tilemap.tres" id="1_w6aom"]
+
+[node name="Door" type="Node2D" unique_id=158117996]
+script = ExtResource("1_p0e35")
+
+[node name="Door" type="TileMapLayer" parent="." unique_id=1625027191]
+position = Vector2(-16, 16)
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 253, 255, 2, 0, 21, 0, 5, 0, 0, 0, 0, 0, 255, 255, 2, 0, 21, 0, 6, 0, 0, 0, 0, 0, 0, 0, 2, 0, 21, 0, 7, 0, 0, 0, 0, 0, 1, 0, 2, 0, 21, 0, 7, 0, 0, 0, 0, 0, 254, 255, 2, 0, 21, 0, 7, 0, 0, 0)
+tile_set = ExtResource("1_w6aom")

@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://bkat6ohf12w4q"]
+
+[ext_resource type="Script" uid="uid://djecu0qpofvil" path="res://Scripts/Special blocks/portal.gd" id="1_p5jjr"]
+[ext_resource type="Texture2D" uid="uid://bethychp6mcri" path="res://Assets/Circle with outline.png" id="2_kevge"]
+[ext_resource type="AudioStream" uid="uid://cown54joi1uo6" path="res://Assets/Sounds/Vwoop.ogg" id="3_ox1fg"]
+
+[sub_resource type="Curve" id="Curve_i60xw"]
+_limits = [0.0, 23.01123, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.68461806, 0, 0, Vector2(1, 4.1368504), 13.887992, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fb2qx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.98936176, 0.033707857), -3.1685402, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_3c48a"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2ygr"]
+radius = 63.737736
+
+[node name="Portal" type="Node2D" unique_id=1113844484]
+script = ExtResource("1_p5jjr")
+
+[node name="Texture" type="Node2D" parent="." unique_id=65803403]
+
+[node name="Blue" type="Sprite2D" parent="Texture" unique_id=1592384460]
+modulate = Color(0.35686275, 0.78431374, 1, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_kevge")
+
+[node name="Particles" type="CPUParticles2D" parent="Texture/Blue" unique_id=880508782]
+amount = 15
+texture = ExtResource("2_kevge")
+randomness = 0.2
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 144.37
+initial_velocity_max = 144.37
+orbit_velocity_min = 0.5
+orbit_velocity_max = 0.8
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+damping_max = 100.0
+damping_curve = SubResource("Curve_i60xw")
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_fb2qx")
+color_ramp = SubResource("Gradient_3c48a")
+
+[node name="Portal area" type="Area2D" parent="Texture/Blue" unique_id=1547316419]
+collision_layer = 4
+collision_mask = 4
+monitoring = false
+
+[node name="Portal shape" type="CollisionShape2D" parent="Texture/Blue/Portal area" unique_id=380831972]
+shape = SubResource("CircleShape2D_q2ygr")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="Orange" type="Sprite2D" parent="Texture" unique_id=1031670420]
+modulate = Color(1, 0.6666667, 0.15686275, 1)
+position = Vector2(0, -200)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_kevge")
+
+[node name="Particles" type="CPUParticles2D" parent="Texture/Orange" unique_id=43147380]
+scale = Vector2(0.99999994, 0.99999994)
+amount = 15
+texture = ExtResource("2_kevge")
+randomness = 0.2
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 144.37
+initial_velocity_max = 144.37
+orbit_velocity_min = 0.5
+orbit_velocity_max = 0.8
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+damping_max = 100.0
+damping_curve = SubResource("Curve_i60xw")
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_fb2qx")
+color_ramp = SubResource("Gradient_3c48a")
+
+[node name="Portal area" type="Area2D" parent="Texture/Orange" unique_id=1523114879]
+collision_layer = 4
+collision_mask = 4
+monitoring = false
+
+[node name="Portal shape" type="CollisionShape2D" parent="Texture/Orange/Portal area" unique_id=829093161]
+shape = SubResource("CircleShape2D_q2ygr")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="Teleport CD" type="Timer" parent="Texture" unique_id=587099734]
+wait_time = 0.1
+one_shot = true
+
+[node name="Vwoop" type="AudioStreamPlayer2D" parent="Texture" unique_id=924585163]
+stream = ExtResource("3_ox1fg")
+
+[connection signal="body_entered" from="Texture/Blue/Portal area" to="." method="_on_player_enter_blue"]
+[connection signal="body_entered" from="Texture/Orange/Portal area" to="." method="_on_player_enter_orange"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dikh0j3s1w2d2"]
+
+[ext_resource type="Script" uid="uid://bhchcqu8ilkw6" path="res://Scripts/Special blocks/line_of_five.gd" id="1_hdlqp"]
+[ext_resource type="TileSet" uid="uid://bwp1v8v8aiy27" path="res://Tilemaps/Main tilemap.tres" id="2_deec3"]
+
+[node name="line of 5" type="Node2D" unique_id=115249969]
+script = ExtResource("1_hdlqp")
+
+[node name="Texture" type="TileMapLayer" parent="." unique_id=668357356]
+position = Vector2(-16, 16)
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 2, 0, 16, 0, 6, 0, 0, 0, 255, 255, 255, 255, 2, 0, 16, 0, 6, 0, 0, 0, 1, 0, 255, 255, 2, 0, 16, 0, 6, 0, 0, 0, 2, 0, 255, 255, 2, 0, 12, 0, 6, 0, 0, 0, 254, 255, 255, 255, 2, 0, 14, 0, 6, 0, 0, 0)
+tile_set = ExtResource("2_deec3")
+collision_enabled = false

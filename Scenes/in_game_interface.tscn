@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cy0y8ue5qup8e"]
+
+[ext_resource type="Script" uid="uid://cqjp710h81hk2" path="res://Scripts/in_game_interface.gd" id="1_alp7r"]
+[ext_resource type="LabelSettings" uid="uid://b5c43duki56sx" path="res://Label settings/label settings.tres" id="2_hxb8y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3l0ge"]
+font_size = 50
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.23529412)
+shadow_offset = Vector2(2, 2)
+
+[node name="In-game interface" type="Control" unique_id=1171768530]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_alp7r")
+
+[node name="Game speed container" type="VBoxContainer" parent="." unique_id=1582479786]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Game speed text" type="Label" parent="Game speed container" unique_id=305734073]
+layout_mode = 2
+text = "Game speed:"
+label_settings = ExtResource("2_hxb8y")
+
+[node name="Speed bar" type="ProgressBar" parent="Game speed container" unique_id=2133163896]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Hide game speed" type="Timer" parent="." unique_id=1497935230]
+wait_time = 3.0
+one_shot = true
+ignore_time_scale = true
+
+[node name="You won" type="VBoxContainer" parent="." unique_id=14428146]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -71.0
+offset_right = 134.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="You won" type="Label" parent="You won" unique_id=1244794578]
+layout_mode = 2
+text = "You won!"
+label_settings = SubResource("LabelSettings_3l0ge")
+horizontal_alignment = 1
+
+[node name="Press esc" type="Label" parent="You won" unique_id=1131195115]
+layout_mode = 2
+text = "Press TAB to go back
+to the main menu..."
+label_settings = ExtResource("2_hxb8y")
+horizontal_alignment = 1

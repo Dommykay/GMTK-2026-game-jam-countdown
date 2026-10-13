@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dhqk4mdvb1uas"]
+
+[ext_resource type="Texture2D" uid="uid://v4dxnr8hvccp" path="res://Assets/Backgrounds/set1_background.png" id="1_4aqey"]
+[ext_resource type="Texture2D" uid="uid://c8g2mtcufiucx" path="res://Assets/Backgrounds/set1_tiles.png" id="2_xgxeb"]
+[ext_resource type="Texture2D" uid="uid://deceqs781af1o" path="res://Assets/Backgrounds/set1_hills.png" id="3_ltlj5"]
+
+[node name="Background" type="Node2D" unique_id=2057918388]
+
+[node name="Background" type="Parallax2D" parent="." unique_id=1217726858]
+z_index = -1
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=790425330]
+scale = Vector2(5, 5)
+texture = ExtResource("1_4aqey")
+
+[node name="Clouds" type="Parallax2D" parent="." unique_id=356084326]
+z_index = -1
+scroll_scale = Vector2(0.72, 0.72)
+repeat_size = Vector2(640, 480)
+autoscroll = Vector2(14.575, 0)
+repeat_times = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds" unique_id=214254905]
+texture = ExtResource("2_xgxeb")
+
+[node name="Hills" type="Parallax2D" parent="." unique_id=357069862]
+z_index = -1
+scroll_scale = Vector2(0.72, 0.3)
+repeat_size = Vector2(640, 0)
+repeat_times = 7
+
+[node name="Hills top" type="Sprite2D" parent="Hills" unique_id=1716101146]
+position = Vector2(0, 100)
+texture = ExtResource("3_ltlj5")
+
+[node name="Hills bottom" type="Sprite2D" parent="Hills" unique_id=832220539]
+position = Vector2(0, 1400)
+scale = Vector2(1, -4.535)
+texture = ExtResource("3_ltlj5")

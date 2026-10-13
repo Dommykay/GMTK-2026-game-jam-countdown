@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cvnv5kpc1katx"]
+
+[ext_resource type="Texture2D" uid="uid://cui6dcdn4we5s" path="res://Assets/block types/Bat-o-matic base.png" id="1_k5iuo"]
+[ext_resource type="Script" uid="uid://qqo2tj7pnu4w" path="res://Scripts/Special blocks/bat_o_matic_3000.gd" id="1_n3lmq"]
+[ext_resource type="Texture2D" uid="uid://cjyrifxfqqr0t" path="res://Assets/block types/Baseball bat.png" id="2_wm5t8"]
+[ext_resource type="Texture2D" uid="uid://cdkiq1ctblbq" path="res://Assets/block types/Cog.png" id="4_d8lc8"]
+[ext_resource type="Script" uid="uid://m5xi2pguo1uw" path="res://Scripts/Special blocks/cog.gd" id="5_wm5t8"]
+[ext_resource type="Script" uid="uid://dsv2ij7j2r4n8" path="res://Scripts/Special blocks/bat hitbox physics.gd" id="6_d8lc8"]
+[ext_resource type="AudioStream" uid="uid://1a0t087hxym2" path="res://Assets/Sounds/woosh1.ogg" id="7_cen8b"]
+[ext_resource type="AudioStream" uid="uid://bg6sjhaw3282e" path="res://Assets/Sounds/rockHit1.ogg" id="8_sfrjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2ygr"]
+size = Vector2(69.5, 67)
+
+[node name="Bat-o-matic 3000" type="Node2D" unique_id=578459268]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_n3lmq")
+
+[node name="Texture" type="Node2D" parent="." unique_id=1943234304]
+
+[node name="Bat" type="Node2D" parent="Texture" unique_id=1864873943]
+position = Vector2(0, -7.000004)
+scale = Vector2(0.1, 0.1)
+
+[node name="Bat texture" type="Sprite2D" parent="Texture/Bat" unique_id=576968359]
+position = Vector2(3.0517578e-05, -200.00002)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_wm5t8")
+
+[node name="Base" type="Sprite2D" parent="Texture" unique_id=1462666568]
+scale = Vector2(0.09999999, 0.09999999)
+texture = ExtResource("1_k5iuo")
+
+[node name="Cog" type="Sprite2D" parent="Texture" unique_id=328060217]
+position = Vector2(0, -7)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("4_d8lc8")
+script = ExtResource("5_wm5t8")
+
+[node name="Hitbox" type="Area2D" parent="Texture" unique_id=1514033880]
+collision_layer = 64
+collision_mask = 64
+monitoring = false
+monitorable = false
+script = ExtResource("6_d8lc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Texture/Hitbox" unique_id=1528995510]
+position = Vector2(-0.25, -27)
+shape = SubResource("RectangleShape2D_q2ygr")
+
+[node name="Hitbox timer" type="Timer" parent="Texture" unique_id=1871566237]
+wait_time = 0.2
+one_shot = true
+
+[node name="Restart timer" type="Timer" parent="Texture" unique_id=867923838]
+wait_time = 2.0
+one_shot = true
+
+[node name="Hit cooldown" type="Timer" parent="Texture" unique_id=1682072386]
+one_shot = true
+
+[node name="Whoosh" type="AudioStreamPlayer2D" parent="Texture" unique_id=1088557919]
+stream = ExtResource("7_cen8b")
+volume_db = -15.0
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Texture" unique_id=1958556458]
+stream = ExtResource("8_sfrjj")
+volume_db = 5.0
+
+[connection signal="area_entered" from="Texture/Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Texture/Hitbox timer" to="." method="_on_hitbox_timer_timeout"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c5bgyit4745sy"]
+
+[ext_resource type="TileSet" uid="uid://bwp1v8v8aiy27" path="res://Tilemaps/Main tilemap.tres" id="1_iwtfe"]
+[ext_resource type="Script" uid="uid://c03bmr0kb3em7" path="res://Scripts/Special blocks/l_shape.gd" id="1_tbnb6"]
+
+[node name="L Shape" type="Node2D" unique_id=115249969]
+script = ExtResource("1_tbnb6")
+
+[node name="Texture" type="TileMapLayer" parent="." unique_id=668357356]
+position = Vector2(-16, 16)
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 2, 0, 15, 0, 6, 0, 0, 0, 1, 0, 0, 0, 2, 0, 12, 0, 6, 0, 0, 0, 0, 0, 0, 0, 2, 0, 16, 0, 6, 0, 0, 0, 0, 0, 255, 255, 2, 0, 16, 0, 6, 0, 0, 0)
+tile_set = ExtResource("1_iwtfe")
+collision_enabled = false

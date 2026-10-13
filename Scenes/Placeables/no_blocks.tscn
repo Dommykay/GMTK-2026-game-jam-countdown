@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://j065cskmbsby"]
+
+[ext_resource type="Script" uid="uid://m8mbty3qew20" path="res://Scripts/Special blocks/no-blocks.gd" id="1_psibw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_psibw"]
+font_size = 23
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.23529412)
+shadow_offset = Vector2(2, 2)
+
+[node name="No blocks" type="Node2D" unique_id=1296179521]
+script = ExtResource("1_psibw")
+
+[node name="Label" type="Label" parent="." unique_id=565273531]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -45.0
+offset_right = 28.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "No remaining
+blocks"
+label_settings = SubResource("LabelSettings_psibw")
